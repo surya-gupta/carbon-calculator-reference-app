@@ -1,17 +1,22 @@
 mastercard:
   api:
     environment:
-      base-path: https://sandbox.api.mastercard.com/carbon  # Refers to sandbox endpoint
+      base-path: https://sandbox.api.mastercard.com/carbon
     authentication:
-      key-file: classpath:your-p12-file.p12 # Copy .p12 file in src/main/resources and set value as classpath:nameOfYourP12File.p12
-      consumer-key: Consumer-key # Copy the Consumer key from "Sandbox/Production Keys" section on your project page
-      keystore-alias: keyalias  # Alias of your key. Default key alias for sandbox is keyalias
-      keystore-password: keystorepassword # Password of your Keystore. Default keystore password for sandbox project is keystorepassword
+      key-file: classpath:keyalias-sandbox.p12
+      consumer-key: SU0JuGlFShwfKVoHBiaI-hVchssjeFVQIfKIJqkl87e12b97!be61dd94a7c14ad1a6d658dd391b6bc10000000000000000
+      keystore-alias: keyalias
+      keystore-password: keystorep@ssword
     encryption:
-      key-file: classpath:client-enc.pem  #client-encryption.pem
-      fingerprint: key-fingerprint #fingerprint
+      key-file: classpath:carbon_calculatorClientEnc1659120391.pem
+      fingerprint: bfce06b677ecf17f9f83b4827e6d4f2a4f0f4e5573c686f7a1c47e6d59969c56
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 test:
   data:
-    bin: 5425  # Update with your bin
+    bin: 5425
     card-base-currency: USD
