@@ -3,12 +3,12 @@ mastercard:
     environment:
       base-path: https://sandbox.api.mastercard.com/carbon
     authentication:
-      key-file: classpath:keyalias-sandbox.p12
+      key-file: keyalias-sandbox.p12
       consumer-key: SU0JuGlFShwfKVoHBiaI-hVchssjeFVQIfKIJqkl87e12b97!be61dd94a7c14ad1a6d658dd391b6bc10000000000000000
       keystore-alias: keyalias
       keystore-password: keystorep@ssword
     encryption:
-      key-file: classpath:carbon_calculatorClientEnc1659120391.pem
+      key-file: carbon_calculatorClientEnc1659120391.pem
       fingerprint: bfce06b677ecf17f9f83b4827e6d4f2a4f0f4e5573c686f7a1c47e6d59969c56
 
 management:

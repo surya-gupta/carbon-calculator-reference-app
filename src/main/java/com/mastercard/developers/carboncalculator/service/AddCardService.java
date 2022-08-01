@@ -32,6 +32,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 import static com.mastercard.developers.carboncalculator.util.JSON.deserializeErrors;
@@ -44,13 +46,13 @@ public class AddCardService {
     private PaymentCardApi paymentCardApi;
 
     @Autowired
-    public AddCardService(ApiConfiguration apiConfiguration) throws ServiceException {
+    public AddCardService(ApiConfiguration apiConfiguration) throws ServiceException, URISyntaxException, IOException {
         LOGGER.info("Initializing Add Card Service");
         paymentCardApi = new PaymentCardApi(setup(apiConfiguration));
 
     }
 
-    private ApiClient setup(ApiConfiguration apiConfiguration) throws ServiceException {
+    private ApiClient setup(ApiConfiguration apiConfiguration) throws ServiceException, URISyntaxException, IOException {
         OkHttpClient client = new OkHttpClient().newBuilder().addInterceptor(
                 new OkHttpFieldLevelEncryptionInterceptor(
                         EncryptionHelper.encryptionConfig(apiConfiguration.getEncryptionKeyFile()))).addInterceptor(

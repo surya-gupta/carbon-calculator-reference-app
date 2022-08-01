@@ -37,12 +37,11 @@ public class EncryptionHelper {
      * @param encryptionKeyFile Resource clientPem file.
      * @return FieldLevelEncryptionConfig
      */
-    public static FieldLevelEncryptionConfig encryptionConfig(Resource encryptionKeyFile)
+    public static FieldLevelEncryptionConfig encryptionConfig(String encryptionKeyFile)
             throws ServiceException {
         try {
 
-            X509Certificate cert = (X509Certificate) EncryptionUtils.loadEncryptionCertificate(
-                    encryptionKeyFile.getFile().getAbsolutePath());
+            X509Certificate cert = (X509Certificate) EncryptionUtils.loadEncryptionCertificate(encryptionKeyFile);
 
 
             return FieldLevelEncryptionConfigBuilder
