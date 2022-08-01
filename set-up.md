@@ -1,6 +1,6 @@
 
 
-Insomnia MasterCard Plug-in
+Insomnia MasterCard Plug-in https://insomnia.rest/plugins/insomnia-plugin-mastercard
 
 ```
 {
