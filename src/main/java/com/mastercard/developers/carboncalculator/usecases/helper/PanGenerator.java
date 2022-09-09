@@ -73,7 +73,7 @@ public class PanGenerator {
     }
 
     public static void main(String[] args) {
-        String fpan = generateFPAN("5425");
+        String fpan = generateFPAN("545502");
         LOGGER.info("{}", fpan);
     }
 

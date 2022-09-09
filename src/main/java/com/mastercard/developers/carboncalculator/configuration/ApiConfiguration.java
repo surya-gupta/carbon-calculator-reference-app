@@ -89,8 +89,8 @@ public class ApiConfiguration {
                         .addInterceptor(new OkHttpOAuth1Interceptor(consumerKey, getSigningKey()))
                         .build()
         );
-        apiClient.setDebugging(false);
-
+        apiClient.setDebugging(true);
+        apiClient.setVerifyingSsl(true);
         return apiClient;
     }
 

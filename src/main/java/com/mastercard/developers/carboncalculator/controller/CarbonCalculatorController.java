@@ -37,7 +37,7 @@ import java.util.List;
  * Issuer can consume these endpoints directly through their web or mobile application or add their implementation on top of this.
  */
 @RestController
-@RequestMapping("/demo")
+@RequestMapping("/carbon")
 public class CarbonCalculatorController {
 
     private final EnvironmentalImpactService environmentalImpactService;

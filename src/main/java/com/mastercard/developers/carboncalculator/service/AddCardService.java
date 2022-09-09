@@ -54,9 +54,9 @@ public class AddCardService {
 
     private ApiClient setup(ApiConfiguration apiConfiguration) throws ServiceException, URISyntaxException, IOException {
         OkHttpClient client = new OkHttpClient().newBuilder().addInterceptor(
-                new OkHttpFieldLevelEncryptionInterceptor(
-                        EncryptionHelper.encryptionConfig(apiConfiguration.getEncryptionKeyFile()))).addInterceptor(
-                new OkHttpOAuth1Interceptor(apiConfiguration.getConsumerKey(), apiConfiguration.getSigningKey()))
+                        new OkHttpFieldLevelEncryptionInterceptor(
+                                EncryptionHelper.encryptionConfig(apiConfiguration.getEncryptionKeyFile()))).addInterceptor(
+                        new OkHttpOAuth1Interceptor(apiConfiguration.getConsumerKey(), apiConfiguration.getSigningKey()))
                 .build();
 
         return new ApiClient().setHttpClient(client).setBasePath(apiConfiguration.getBasePath());
@@ -76,6 +76,7 @@ public class AddCardService {
 
             return paymentCardInfo;
         } catch (ApiException e) {
+            LOGGER.error("registerPaymentCard failed : {}", deserializeErrors(e.getResponseBody()));
             throw new ServiceException(e.getMessage(), deserializeErrors(e.getResponseBody()));
         }
 
@@ -87,6 +88,7 @@ public class AddCardService {
             LOGGER.info("Calling Register Batch Payment Cards");
             return paymentCardApi.batchRegisterPaymentCards(paymentCard);
         } catch (ApiException e) {
+            LOGGER.error("registerBatchPaymentCards failed: {}", deserializeErrors(e.getResponseBody()));
             throw new ServiceException(e.getMessage(), deserializeErrors(e.getResponseBody()));
         }
 

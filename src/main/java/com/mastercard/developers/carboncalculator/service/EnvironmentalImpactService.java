@@ -56,6 +56,7 @@ public class EnvironmentalImpactService {
             return footprints;
 
         } catch (ApiException e) {
+            LOGGER.error("calculateFootprints failed : {}", deserializeErrors(e.getResponseBody()));
             throw new ServiceException(e.getMessage(), deserializeErrors(e.getResponseBody()));
         }
 
