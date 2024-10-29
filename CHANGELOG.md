@@ -1,9 +1,18 @@
-# Change Log
+```mermaid
 
-## Version 1.0.0
+flowchart TD
+    subgraph Controllers
+        SPC[SupportedParametersController]
+        RTNC[ReceiveTransactionNotificationController]
+    end
 
-January 27, 2021
+    subgraph Services
+        SPS[SupportedParametersService]
+        RTNS[ReceiveTransactionNotificationService]
+    end
 
-Changes:
+    SPC -->|getSupportedCurrencies| SPS
+    SPC -->|getSupportedMerchantCategories| SPS
+    RTNC -->|notifyTransactionFootprint| RTNS
 
-* Initial release
+```
